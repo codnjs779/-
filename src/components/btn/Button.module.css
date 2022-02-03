@@ -1,0 +1,16 @@
+@value titleBoxPadding, topMargin,small from "../common/size.css";
+@value white, lightBlack from "../common/colors.css";
+.button {
+    margin-top: topMargin;
+    width: 100px;
+    height: topMargin;
+    border-radius: 10px;
+    font-size: small;
+    background: lightBlack;
+    color: white;
+    cursor: pointer;
+}
+
+.button:hover {
+    opacity: 0.8;
+}

@@ -1,0 +1,19 @@
+@value lightBlack from "../common/colors.css";
+
+.login {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-family: "League";
+    font-size: 50px;
+}
+.titleImg {
+    width: 320px;
+    margin: auto;
+    margin-top: 180px;
+}
+
+.signIn {
+    color: lightBlack;
+    margin-top: 100px;
+}

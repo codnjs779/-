@@ -1,0 +1,59 @@
+@value topMargin, radius, titleBoxPadding,middle, radius,small,bigMargin, boxHeight from "../common/size.css";
+@value white from "../common/colors.css";
+
+.todayBox {
+    display: flex;
+    flex-direction: column;
+}
+.titleBar {
+    margin-top: topMargin;
+    position: relative;
+}
+
+.emtion {
+    text-align: center;
+    margin-top: topMargin;
+}
+.question,
+.diaryHeader {
+    font-size: small;
+}
+.emtionBar {
+    display: flex;
+    font-size: small;
+    cursor: pointer;
+    list-style: none;
+    padding: 0;
+    margin-top: topMargin;
+    justify-content: space-around;
+}
+
+.emtionBar li:hover {
+    transform: scale(1.2);
+}
+
+.pen {
+    margin: auto;
+    margin-bottom: titleBoxPadding;
+    width: boxHeight;
+}
+.diary {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+.diaryHeader {
+    margin-bottom: titleBoxPadding;
+}
+
+.diaryInput {
+    width: 300px;
+    margin: auto;
+    margin-top: topMargin;
+    height: 300px;
+    border-radius: radius;
+    border: none;
+    opacity: 0.8;
+    text-align: center;
+    font-size: small;
+}

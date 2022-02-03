@@ -1,0 +1,14 @@
+@value headerBoxWidth, boxHeight, titleSize, topMargin, radius, titleBoxPadding from "../common/size.css";
+@value lightBlack, white from "../common/colors.css";
+.titleBox {
+    width: headerBoxWidth;
+    height: boxHeight;
+    background: lightBlack;
+    color: white;
+    text-align: center;
+    font-size: titleSize;
+    border-radius: radius;
+    margin: auto;
+
+    padding-top: titleBoxPadding;
+}

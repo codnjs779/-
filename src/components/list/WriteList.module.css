@@ -1,0 +1,30 @@
+@value topMargin, radius from "../common/size.css";
+@value white from "../common/colors.css";
+
+.WriteListBox {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+.titleBar {
+    margin-top: topMargin;
+    position: relative;
+}
+.penBox {
+    border: solid 2px;
+    width: 60px;
+    height: 60px;
+    border-radius: radius;
+    position: absolute;
+    left: 300px;
+    top: 550px;
+    transition: ;
+}
+
+.penBox img {
+    width: inherit;
+    height: inherit;
+}
+.penBox:hover {
+    background: white;
+}
