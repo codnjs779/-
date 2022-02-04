@@ -1,9 +1,10 @@
-@value titleBoxPadding, topMargin,small from "../common/size.css";
+@value large,small from "../common/size.css";
 @value white, lightBlack from "../common/colors.css";
 .button {
-    margin-top: topMargin;
+    margin-top: small;
+    margin-bottom: small;
     width: 100px;
-    height: topMargin;
+    height: large;
     border-radius: 10px;
     font-size: small;
     background: lightBlack;

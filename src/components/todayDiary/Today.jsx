@@ -43,7 +43,12 @@ const Today = () => {
             <section className={styles.diary}>
                 <img className={styles.pen} src={pen} alt="pen" />
                 <div className={styles.diaryHeader}>하루를 짧은 글로 정리해보세요</div>
-                <input className={styles.diaryInput} type="text" placeholder="100자 내로 입력해주세요!" />
+
+                <div className={styles.txTBox}>
+                    {" "}
+                    <textarea className={styles.diaryTxT} maxLength="200" type="text" placeholder="200자 내로 입력해주세요!" />
+                </div>
+
                 <div className={styles.button}>
                     <Button text="입력" onClick={returnList}></Button>
                 </div>

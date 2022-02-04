@@ -1,4 +1,4 @@
-@value topMargin, radius from "../common/size.css";
+@value large,  xsmall from "../common/size.css";
 @value white from "../common/colors.css";
 
 .WriteListBox {
@@ -7,18 +7,16 @@
     position: relative;
 }
 .titleBar {
-    margin-top: topMargin;
-    position: relative;
+    margin-top: large;
 }
 .penBox {
     border: solid 2px;
     width: 60px;
     height: 60px;
-    border-radius: radius;
+    border-radius: xsmall;
     position: absolute;
     left: 300px;
     top: 550px;
-    transition: ;
 }
 
 .penBox img {

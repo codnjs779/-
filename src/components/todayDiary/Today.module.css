@@ -1,4 +1,4 @@
-@value topMargin, radius, titleBoxPadding,middle, radius,small,bigMargin, boxHeight from "../common/size.css";
+@value large, small, xsmall from "../common/size.css";
 @value white from "../common/colors.css";
 
 .todayBox {
@@ -6,13 +6,12 @@
     flex-direction: column;
 }
 .titleBar {
-    margin-top: topMargin;
-    position: relative;
+    margin-top: large;
 }
 
 .emtion {
     text-align: center;
-    margin-top: topMargin;
+    margin-top: large;
 }
 .question,
 .diaryHeader {
@@ -24,7 +23,7 @@
     cursor: pointer;
     list-style: none;
     padding: 0;
-    margin-top: topMargin;
+    margin-top: large;
     justify-content: space-around;
 }
 
@@ -34,8 +33,8 @@
 
 .pen {
     margin: auto;
-    margin-bottom: titleBoxPadding;
-    width: boxHeight;
+    margin-bottom: xsmall;
+    width: large;
 }
 .diary {
     display: flex;
@@ -43,15 +42,15 @@
     text-align: center;
 }
 .diaryHeader {
-    margin-bottom: titleBoxPadding;
+    margin-bottom: xsmall;
 }
 
-.diaryInput {
-    width: 300px;
+.diaryTxT {
+    width: 360px;
+    height: 250px;
     margin: auto;
-    margin-top: topMargin;
-    height: 300px;
-    border-radius: radius;
+    margin-top: small;
+    border-radius: xsmall;
     border: none;
     opacity: 0.8;
     text-align: center;

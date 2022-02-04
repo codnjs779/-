@@ -1,11 +1,10 @@
 @value mainBeige from "./components/common/colors.css";
 
 .app {
-    height: 100vh;
+    min-height: 100vh;
     width: 410px;
     max-width: 410px;
     margin: auto;
     background: mainBeige;
-    box-sizing: border-box;
     font-family: "JSDong";
 }
