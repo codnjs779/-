@@ -6,13 +6,13 @@ import Today from "./components/todayDiary/Today";
 import Edit from "./components/editPage/Edit";
 import { Route, Routes } from "react-router-dom";
 
-function App() {
+function App({ authService }) {
     return (
         <div className={styles.app}>
             <Routes>
                 <Route path="/start" element={<StartScreen />} />
-                <Route path="/" element={<Login />} />
-                <Route path="/writelist" element={<WriteList />} />
+                <Route path="/" element={<Login authService={authService} />} />
+                <Route path="/writelist" element={<WriteList authService={authService} />} />
                 <Route path="/today" element={<Today />} />
                 <Route path="/edit" element={<Edit />} />
             </Routes>

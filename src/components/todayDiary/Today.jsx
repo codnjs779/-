@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import Header from "../header/Header";
 import styles from "./Today.module.css";
 import Button from "../btn/Button";
@@ -6,6 +6,11 @@ import pen from "../../images/pen.png";
 import { useNavigate } from "react-router-dom";
 const Today = () => {
     const nextNav = useNavigate();
+    const diaryRef = useRef();
+    const diaryContent = () => {
+        console.log(`diary`, diaryRef.current.value);
+    };
+
     const emotionIcon = [
         { id: 1, emotion: "😁" },
         { id: 2, emotion: "😥" },
@@ -46,7 +51,7 @@ const Today = () => {
 
                 <div className={styles.txTBox}>
                     {" "}
-                    <textarea className={styles.diaryTxT} maxLength="200" type="text" placeholder="200자 내로 입력해주세요!" />
+                    <textarea onChange={diaryContent} ref={diaryRef} className={styles.diaryTxT} maxLength="200" type="text" placeholder="200자 내로 입력해주세요!" />
                 </div>
 
                 <div className={styles.button}>

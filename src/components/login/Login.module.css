@@ -1,5 +1,5 @@
-@value lightBlack from "../common/colors.css";
-
+@value lightBlack, white,grey from "../common/colors.css";
+@value xxlarge, large, twenty,xsmall from "../common/size.css";
 .login {
     display: flex;
     flex-direction: column;
@@ -16,4 +16,28 @@
 .signIn {
     color: lightBlack;
     margin-top: 100px;
+}
+
+.loginBox {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    margin-top: large;
+}
+
+.loginBtn {
+    background: lightBlack;
+    color: white;
+    width: xxlarge;
+    height: large;
+    margin-top: xlarge;
+    font-size: twenty;
+    margin-top: large;
+    border-radius: xsmall;
+    cursor: pointer;
+}
+
+.loginBtn:hover {
+    background: black;
+    box-shadow: 10px 5px 5px grey;
 }

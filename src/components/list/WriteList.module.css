@@ -6,9 +6,11 @@
     flex-direction: column;
     position: relative;
 }
+
 .titleBar {
     margin-top: large;
 }
+
 .penBox {
     border: solid 2px;
     width: 60px;
