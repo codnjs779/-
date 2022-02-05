@@ -4,6 +4,7 @@ import styles from "./WriteList.module.css";
 import { useNavigate } from "react-router-dom";
 import pen from "../../images/pen.png";
 import LogoutBtn from "../logout/LogoutBtn";
+import MiniBox from "../miniBox/MiniBox";
 const WriteList = ({ authService }) => {
     const nextNav = useNavigate();
     const writeDiary = () => {
@@ -25,6 +26,10 @@ const WriteList = ({ authService }) => {
             <div className={styles.titleBar}>
                 <Header title="나의하루들" />
             </div>
+
+            <ul className={styles.miniboxSet}>
+                <MiniBox />
+            </ul>
 
             <div className={styles.penBox} onClick={writeDiary}>
                 <img src={pen} alt="pen" />

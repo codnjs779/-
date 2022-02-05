@@ -1,0 +1,25 @@
+@value xlarge, xsmall,middle, line from "../common/size.css";
+@value lightBeige,lightBlack, black from "../common/colors.css";
+.minibox {
+    width: xlarge;
+    height: xlarge;
+    border-radius: xsmall;
+    border: solid line black;
+    background: lightBeige;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.minibox div {
+    margin-top: xsmall;
+}
+
+.date {
+    font-size: 18px;
+    font-weight: bold;
+}
+.emoji {
+    font-size: middle;
+}

@@ -1,4 +1,4 @@
-@value large,  xsmall from "../common/size.css";
+@value large, line ,xsmall from "../common/size.css";
 @value white from "../common/colors.css";
 
 .WriteListBox {
@@ -12,7 +12,7 @@
 }
 
 .penBox {
-    border: solid 2px;
+    border: solid line;
     width: 60px;
     height: 60px;
     border-radius: xsmall;
