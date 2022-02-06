@@ -60,6 +60,7 @@ const Today = ({ setToday, userDataController }) => {
                 <div className={styles.question}>
                     오늘의 <strong>000님</strong>은?
                 </div>
+                <div>{pickEmotion}</div>
 
                 <ul className={styles.emtionBar}>{emotion}</ul>
             </section>

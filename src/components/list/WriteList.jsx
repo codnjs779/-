@@ -35,6 +35,7 @@ const WriteList = ({ authService }) => {
                     userDiary={userDiary} //
                     writeDiary={writeDiary}
                     onLogout={onLogout}
+                    userDataController={userDataController}
                 />
             )}
         </>
