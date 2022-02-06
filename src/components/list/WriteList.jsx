@@ -5,17 +5,17 @@ import { useNavigate } from "react-router-dom";
 import pen from "../../images/pen.png";
 import LogoutBtn from "../logout/LogoutBtn";
 import MiniBox from "../miniBox/MiniBox";
-const WriteList = ({ authService }) => {
+const WriteList = ({ authService, userDiary }) => {
     const nextNav = useNavigate();
+
     const writeDiary = () => {
         nextNav("/today");
     };
+
     const onLogout = () => {
         authService.logout();
         nextNav("/");
     };
-
-    const [userDiary, setUserDiary] = useState({});
 
     return (
         <div className={styles.WriteListBox}>
@@ -28,7 +28,7 @@ const WriteList = ({ authService }) => {
             </div>
 
             <ul className={styles.miniboxSet}>
-                <MiniBox />
+                <MiniBox userDiary={userDiary} />
             </ul>
 
             <div className={styles.penBox} onClick={writeDiary}>

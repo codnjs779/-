@@ -1,11 +1,12 @@
 import React from "react";
 import styles from "./MiniBox.module.css";
 
-const MiniBox = () => {
+const MiniBox = ({ userDiary }) => {
+    const { date, emoji } = userDiary;
     return (
         <li className={styles.minibox}>
-            <div className={styles.date}>22-02-05</div>
-            <div className={styles.emoji}>😎</div>
+            <div className={styles.date}>{date}</div>
+            <div className={styles.emoji}>{emoji}</div>
         </li>
     );
 };

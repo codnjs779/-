@@ -4,13 +4,13 @@ import styles from "./Today.module.css";
 import Button from "../btn/Button";
 import pen from "../../images/pen.png";
 import { useNavigate } from "react-router-dom";
-const Today = () => {
+const Today = ({ setUserDiary, userDiary }) => {
     const nextNav = useNavigate();
-    const diaryRef = useRef();
-    const diaryContent = () => {
-        console.log(`diary`, diaryRef.current.value);
-    };
 
+    const diaryRef = useRef();
+    const returnList = () => {
+        nextNav("/writelist");
+    };
     const emotionIcon = [
         { id: 1, emotion: "😁" },
         { id: 2, emotion: "😥" },
@@ -18,12 +18,7 @@ const Today = () => {
         { id: 4, emotion: "🥰" },
         { id: 5, emotion: "😨" },
     ];
-    const returnList = () => {
-        nextNav("/writelist");
-    };
-    const selectedEmoji = (e) => {
-        console.log(e);
-    };
+
     const emotion = emotionIcon.map((emoji) => {
         return (
             <li onClick={(e) => selectedEmoji(emoji.emotion)} key={emoji.id}>
@@ -32,6 +27,35 @@ const Today = () => {
         );
     });
 
+    const diaryContent = () => {
+        let newUserDiary = { ...userDiary };
+        newUserDiary.diary = diaryRef.current.value;
+        setUserDiary(newUserDiary);
+    };
+
+    const selectedEmoji = (e) => {
+        let newUserDiary = { ...userDiary };
+        newUserDiary.emoji = e;
+
+        const id = new Date();
+        newUserDiary.id = id;
+
+        const date = editDate(id);
+
+        newUserDiary.date = date;
+        setUserDiary(newUserDiary);
+    };
+
+    const editDate = (id) => {
+        let year = id.getFullYear();
+        const yearString = year.toString();
+        year = yearString.substring(0, 2);
+
+        const month = ("0" + (id.getMonth() + 1)).slice(-2);
+        const day = ("0" + id.getDate()).slice(-2);
+        const date = year + "-" + month + "-" + day;
+        return date;
+    };
     return (
         <div className={styles.todayBox}>
             <div className={styles.titleBar}>
