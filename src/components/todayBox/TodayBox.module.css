@@ -1,0 +1,36 @@
+@value large, line ,xsmall from "../common/size.css";
+@value white from "../common/colors.css";
+
+.WriteListBox {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.titleBar {
+    margin-top: large;
+}
+.miniboxSet {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: large;
+}
+
+.penBox {
+    border: solid line;
+    width: 60px;
+    height: 60px;
+    border-radius: xsmall;
+    position: absolute;
+    left: 300px;
+    top: 550px;
+}
+
+.penBox img {
+    width: inherit;
+    height: inherit;
+}
+.penBox:hover {
+    background: white;
+}

@@ -1,15 +1,15 @@
 import React, { useState } from "react";
-import Header from "../header/Header";
-import styles from "./WriteList.module.css";
 import { useNavigate } from "react-router-dom";
-import pen from "../../images/pen.png";
-import LogoutBtn from "../logout/LogoutBtn";
-import MiniBox from "../miniBox/MiniBox";
-const WriteList = ({ authService, userDiary }) => {
+import Today from "../todayDiary/Today";
+import TodayBox from "../todayBox/TodayBox";
+
+const WriteList = ({ authService }) => {
     const nextNav = useNavigate();
+    const [userDiary, setUserDiary] = useState({});
+    const [today, setToday] = useState(false);
 
     const writeDiary = () => {
-        nextNav("/today");
+        setToday(true);
     };
 
     const onLogout = () => {
@@ -17,24 +17,27 @@ const WriteList = ({ authService, userDiary }) => {
         nextNav("/");
     };
 
+    const userDataController = (day) => {
+        setUserDiary((userDiary) => {
+            const newObj = { ...userDiary };
+            newObj[day.id] = day;
+            return newObj;
+        });
+    };
+
     return (
-        <div className={styles.WriteListBox}>
-            <div className={styles.logoutBtn}>
-                <LogoutBtn onClick={onLogout} />
-            </div>
-
-            <div className={styles.titleBar}>
-                <Header title="나의하루들" />
-            </div>
-
-            <ul className={styles.miniboxSet}>
-                <MiniBox userDiary={userDiary} />
-            </ul>
-
-            <div className={styles.penBox} onClick={writeDiary}>
-                <img src={pen} alt="pen" />
-            </div>
-        </div>
+        <>
+            {today === true ? (
+                <Today setToday={setToday} userDataController={userDataController} />
+            ) : (
+                <TodayBox
+                    authService={authService}
+                    userDiary={userDiary} //
+                    writeDiary={writeDiary}
+                    onLogout={onLogout}
+                />
+            )}
+        </>
     );
 };
 
