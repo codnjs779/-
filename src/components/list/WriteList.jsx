@@ -3,9 +3,9 @@ import { useNavigate } from "react-router-dom";
 import Today from "../todayDiary/Today";
 import TodayBox from "../todayBox/TodayBox";
 
-const WriteList = ({ authService }) => {
+const WriteList = ({ authService, userDiary, setUserDiary, pickList }) => {
     const nextNav = useNavigate();
-    const [userDiary, setUserDiary] = useState({});
+
     const [today, setToday] = useState(false);
 
     const writeDiary = () => {
@@ -13,8 +13,13 @@ const WriteList = ({ authService }) => {
     };
 
     const onLogout = () => {
-        authService.logout();
-        nextNav("/");
+        let result = window.confirm("로그아웃 하시겠습니까?");
+        if (result) {
+            authService.logout(); //
+            nextNav("/");
+        } else {
+            return;
+        }
     };
 
     const userDataController = (day) => {
@@ -36,6 +41,7 @@ const WriteList = ({ authService }) => {
                     writeDiary={writeDiary}
                     onLogout={onLogout}
                     userDataController={userDataController}
+                    pickList={pickList}
                 />
             )}
         </>

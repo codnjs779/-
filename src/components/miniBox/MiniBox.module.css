@@ -1,4 +1,4 @@
-@value xlarge, xsmall,middle, line from "../common/size.css";
+@value xlarge, xsmall,middle, small,line from "../common/size.css";
 @value lightBeige,lightBlack, black from "../common/colors.css";
 .minibox {
     width: xlarge;
@@ -10,12 +10,16 @@
     display: flex;
     flex-direction: column;
     cursor: pointer;
+    margin-top: small;
+    transition: 0.2s ease-in-out;
 }
 
 .minibox div {
     margin-top: xsmall;
 }
-
+.minibox:hover {
+    transform: scale(1.1);
+}
 .date {
     font-size: 18px;
     font-weight: bold;

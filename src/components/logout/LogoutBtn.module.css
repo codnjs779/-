@@ -10,9 +10,11 @@
     position: absolute;
     margin-top: 70px;
     margin-bottom: xsmall;
+    transition: 0.2s ease-in-out;
 }
 
 .logoutBtn:hover {
     background: black;
     color: white;
+    transform: scale(1.1);
 }

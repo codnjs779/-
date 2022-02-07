@@ -12,7 +12,9 @@ class AuthService {
     }
 
     logout() {
-        this.firebaseAuth.signOut();
+        this.firebaseAuth.signOut().catch((error) => {
+            console.log("err", error);
+        });
     }
 
     onAuthChange(onUserChanged) {
