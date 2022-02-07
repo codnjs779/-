@@ -1,11 +1,8 @@
 import React from "react";
 import styles from "./LogoutBtn.module.css";
 const LogoutBtn = ({ onLogout }) => {
-    const onClick = () => {
-        onLogout();
-    };
     return (
-        <button className={styles.logoutBtn} onClick={onClick}>
+        <button className={styles.logoutBtn} onClick={onLogout}>
             <i className="fas fa-power-off"></i>
         </button>
     );

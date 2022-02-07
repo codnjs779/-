@@ -46,7 +46,17 @@ function App({ authService, dayRepository }) {
                 nextNav("/");
             }
         });
-    });
+    }, [userId, nextNav, authService]);
+
+    useEffect(() => {
+        if (!userId) {
+            return;
+        }
+        const stopSync = dayRepository.syncDiary(userId, (userDiary) => {
+            setUserDiary(userDiary);
+        });
+        return () => stopSync(); //
+    }, [userId]);
 
     return (
         <div className={styles.app}>

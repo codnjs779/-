@@ -8,7 +8,12 @@ const WriteList = ({ authService, userDiary, nextNav, editList, deletList }) => 
     const [keyValue, setKeyValue] = useState();
 
     const onLogout = () => {
-        authService.logout();
+        let result = window.confirm("로그아웃 하시겠습니까?");
+        if (result) {
+            authService.logout(); //
+        } else {
+            return;
+        }
     };
 
     return (
