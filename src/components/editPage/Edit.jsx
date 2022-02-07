@@ -3,12 +3,10 @@ import Header from "../header/Header";
 import styles from "../todayDiary/Today.module.css";
 import Button from "../btn/Button";
 import pen from "../../images/pen.png";
-import { useNavigate } from "react-router-dom";
 
-const Edit = ({ pick, editList, deletList }) => {
-    const nextNav = useNavigate();
-
+const Edit = ({ pick, deletList, editList, setEditSwitch }) => {
     const { date, emoji, diary } = pick;
+
     const diaryRef = useRef();
     const [newDiary, setNewDiary] = useState("");
     const [pickEmotion, setPickEmotion] = useState("");
@@ -39,17 +37,17 @@ const Edit = ({ pick, editList, deletList }) => {
         newPick.diary = newDiary || diary;
 
         editList(newPick);
-        nextNav("/writelist");
+        setEditSwitch(false);
     };
 
-    const deleteBtn = async () => {
+    const deleteBtn = () => {
         let result = window.confirm("삭제하시겠습니까?");
         if (result) {
             alert("삭제되었습니다");
             deletList(pick);
-            nextNav("/writelist");
+            setEditSwitch(false);
         } else {
-            nextNav("/writelist");
+            setEditSwitch(false);
         }
     };
 

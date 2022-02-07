@@ -5,7 +5,7 @@ import Button from "../btn/Button";
 import pen from "../../images/pen.png";
 import { useNavigate } from "react-router-dom";
 
-const Today = ({ setToday, userDataController }) => {
+const Today = ({ addList }) => {
     const nextNav = useNavigate();
 
     const diaryRef = useRef();
@@ -34,7 +34,6 @@ const Today = ({ setToday, userDataController }) => {
 
     const returnList = () => {
         nextNav("/writelist");
-        setToday(false);
 
         const diary = diaryRef.current.value;
 
@@ -44,7 +43,7 @@ const Today = ({ setToday, userDataController }) => {
             emoji: pickEmotion,
             diary,
         };
-        userDataController(day);
+        addList(day);
     };
 
     const emotion = emotionIcon.map((emoji) => {

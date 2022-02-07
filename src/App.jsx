@@ -1,42 +1,60 @@
 import styles from "./App.module.css";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Login from "./components/login/Login";
 import StartScreen from "./components/starting/StartScreen";
 import WriteList from "./components/list/WriteList";
-import Edit from "./components/editPage/Edit";
-import { Route, Routes } from "react-router-dom";
 import Today from "./components/todayDiary/Today";
+import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 
-function App({ authService }) {
+function App({ authService, dayRepository }) {
+    //state
     const [userDiary, setUserDiary] = useState({});
 
-    const [pick, setPick] = useState();
+    //locate
+    const location = useLocation();
+    const locationState = location?.state;
+    const nextNav = useNavigate();
 
-    const pickList = (pickUser) => {
-        setPick(pickUser);
+    //login
+    const [userId, setUserId] = useState(locationState && locationState.id);
+
+    //func
+
+    const userDataController = (day) => {
+        setUserDiary((userDiary) => {
+            const newObj = { ...userDiary };
+            newObj[day.id] = day;
+            return newObj;
+        });
+        dayRepository.saveDiary(userId, day);
     };
-    const editList = (newPick) => {
+
+    const deletList = (day) => {
         setUserDiary((userDiary) => {
             const updated = { ...userDiary };
-            updated[newPick.id] = newPick;
+            delete updated[day.id];
             return updated;
         });
+        dayRepository.removeDiary(userId, day);
     };
 
-    const deletList = (deletePick) => {
-        setUserDiary((userDiary) => {
-            const updated = { ...userDiary };
-            delete updated[deletePick.id];
-            return updated;
+    useEffect(() => {
+        authService.onAuthChange((user) => {
+            if (user) {
+                setUserId(user.uid);
+            } else {
+                nextNav("/");
+            }
         });
-    };
+    });
+
     return (
         <div className={styles.app}>
             <Routes>
                 <Route path="/start" element={<StartScreen />} />
                 <Route path="/" element={<Login authService={authService} />} />
-                <Route path="/writelist" element={<WriteList userDiary={userDiary} setUserDiary={setUserDiary} pickList={pickList} authService={authService} />} />
-                {pick && <Route path={`/edit/${pick.id}`} element={<Edit pick={pick} deletList={deletList} editList={editList} />} />}
+                <Route path="/writelist" element={<WriteList userDiary={userDiary} authService={authService} nextNav={nextNav} editList={userDataController} deletList={deletList} />} />
+                <Route path="/today" element={<Today addList={userDataController} />} />
             </Routes>
         </div>
     );
