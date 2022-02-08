@@ -35,7 +35,7 @@
 .penBox:hover {
     background: white;
 }
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 700px) {
     .miniboxSet {
         width: 50%;
         margin: auto;

@@ -73,12 +73,18 @@
     justify-content: space-around;
 }
 
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 750px) {
     .diaryTxT {
         width: 80%;
         max-width: 80%;
     }
     .emtionBar input {
         font-size: middle;
+    }
+}
+
+@media screen and (max-height: 750px) {
+    .diaryTxT {
+        width: 280px;
     }
 }

@@ -1,6 +1,5 @@
 import React from "react";
 import styles from "./Login.module.css";
-import title from "../../images/titleLogo.png";
 import { useNavigate } from "react-router-dom";
 
 const Login = ({ authService }) => {
@@ -18,7 +17,7 @@ const Login = ({ authService }) => {
 
     return (
         <div className={styles.login}>
-            <img src={title} className={styles.titleImg} alt="title"></img>
+            <div className={styles.title}>Write.</div>
             <div className={styles.signIn}>sign in</div>
             <div className={styles.loginBox}>
                 <button className={styles.loginBtn} onClick={signHandler}>

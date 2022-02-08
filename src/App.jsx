@@ -1,7 +1,7 @@
 import styles from "./App.module.css";
 import React, { useState, useEffect } from "react";
 import Login from "./components/login/Login";
-import StartScreen from "./components/starting/StartScreen";
+
 import WriteList from "./components/list/WriteList";
 import Today from "./components/todayDiary/Today";
 import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
@@ -61,7 +61,6 @@ function App({ authService, dayRepository }) {
     return (
         <div className={styles.app}>
             <Routes>
-                <Route path="/start" element={<StartScreen />} />
                 <Route path="/" element={<Login authService={authService} />} />
                 <Route path="/writelist" element={<WriteList userDiary={userDiary} authService={authService} nextNav={nextNav} editList={userDataController} deletList={deletList} />} />
                 <Route path="/today" element={<Today addList={userDataController} />} />

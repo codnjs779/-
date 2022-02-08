@@ -2,15 +2,9 @@
 
 .app {
     min-height: 100vh;
-    width: 410px;
-    max-width: 410px;
+    width: 100%;
     margin: auto;
+    padding-bottom: 80px;
     background: mainBeige;
     font-family: "JSDong";
-}
-@media screen and (min-width: 800px) {
-    .app {
-        width: 80%;
-        max-width: 80%;
-    }
 }

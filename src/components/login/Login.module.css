@@ -1,34 +1,33 @@
 @value lightBlack, white,grey from "../common/colors.css";
-@value xxlarge, large, twenty,xsmall from "../common/size.css";
+@value xxlarge, xlarge,large, twenty,xsmall from "../common/size.css";
 .login {
     display: flex;
     flex-direction: column;
     text-align: center;
     font-family: "League";
-    font-size: 50px;
+    font-size: large;
 }
-.titleImg {
-    width: 320px;
-    margin: auto;
-    margin-top: 180px;
+.title {
+    font-size: 90px;
+    margin-top: xxlarge;
 }
 
 .signIn {
     color: lightBlack;
-    margin-top: 100px;
+    margin-top: large;
 }
 
 .loginBox {
     display: flex;
     flex-direction: column;
     margin: auto;
-    margin-top: large;
+    margin-top: xlarge;
 }
 
 .loginBtn {
     background: lightBlack;
     color: white;
-    width: xxlarge;
+    width: 250px;
     height: large;
     margin-top: xlarge;
     font-size: twenty;
@@ -42,9 +41,15 @@
     box-shadow: 10px 5px 5px grey;
 }
 
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 760px) {
     .loginBtn {
         width: 600px;
         max-width: 600px;
+    }
+}
+
+@media screen and (max-height: 750px) {
+    .title {
+        margin-top: xlarge;
     }
 }
