@@ -5,9 +5,6 @@
     display: flex;
     flex-direction: column;
 }
-.titleBar {
-    margin-top: large;
-}
 
 .emtion {
     text-align: center;
@@ -83,7 +80,7 @@
     }
 }
 
-@media screen and (max-height: 750px) {
+@media screen and (max-height: 370px) {
     .diaryTxT {
         width: 280px;
     }

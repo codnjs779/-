@@ -7,9 +7,6 @@
     position: relative;
 }
 
-.titleBar {
-    margin-top: large;
-}
 .miniboxSet {
     display: flex;
     justify-content: space-around;
@@ -47,7 +44,7 @@
     height: 60px;
     border-radius: xsmall;
     position: absolute;
-    left: 300px;
+    left: 400px;
     top: 550px;
     background: mainBeige;
 }
@@ -66,6 +63,5 @@
     }
     .penBox {
         left: 100px;
-        top: 50px;
     }
 }

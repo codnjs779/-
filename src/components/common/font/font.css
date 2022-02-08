@@ -3,8 +3,3 @@
     font-style: bold;
     src: url("./LeagueSpartan-Bold.woff") format("woff");
 }
-@font-face {
-    font-family: "JSDong";
-    font-style: normal;
-    src: url("./JSDongkang-Regular.woff") format("woff");
-}

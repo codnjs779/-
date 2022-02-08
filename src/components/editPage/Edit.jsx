@@ -3,13 +3,21 @@ import Header from "../header/Header";
 import styles from "../todayDiary/Today.module.css";
 import Button from "../btn/Button";
 import pen from "../../images/pen.png";
-
-const Edit = ({ pick, deletList, editList, setEditSwitch }) => {
-    const { date, emoji, diary } = pick;
-
+import { useLocation, useNavigate } from "react-router-dom";
+const Edit = ({ deletList, editList }) => {
+    const location = useLocation();
+    const pick = location?.state.pick;
+    const { date, emoji, diary } = location?.state.pick;
     const diaryRef = useRef();
+
     const [newDiary, setNewDiary] = useState("");
     const [pickEmotion, setPickEmotion] = useState("");
+
+    const nextNav = useNavigate();
+    const listPage = () => {
+        nextNav("/writelist");
+    };
+
     const emotionIcon = [
         { id: 1, emotion: "😁" },
         { id: 2, emotion: "😥" },
@@ -32,12 +40,10 @@ const Edit = ({ pick, deletList, editList, setEditSwitch }) => {
     };
     const editBtn = () => {
         let newPick = { ...pick };
-
         newPick.emoji = pickEmotion || emoji;
         newPick.diary = newDiary || diary;
-
         editList(newPick);
-        setEditSwitch(false);
+        listPage();
     };
 
     const deleteBtn = () => {
@@ -45,10 +51,9 @@ const Edit = ({ pick, deletList, editList, setEditSwitch }) => {
         if (result) {
             alert("삭제되었습니다");
             deletList(pick);
-            setEditSwitch(false);
-        } else {
-            setEditSwitch(false);
+            listPage();
         }
+        return;
     };
 
     return (
@@ -64,7 +69,6 @@ const Edit = ({ pick, deletList, editList, setEditSwitch }) => {
 
                 <ul className={styles.emtionBar}>{emotion}</ul>
             </section>
-
             <section className={styles.diary}>
                 <img className={styles.pen} src={pen} alt="pen" />
                 <div className={styles.diaryHeader}>하루를 짧은 글로 정리해보세요</div>

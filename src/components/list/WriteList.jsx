@@ -1,34 +1,21 @@
-import React, { useState, memo, useEffect } from "react";
+import React, { useCallback } from "react";
 import TodayBox from "../todayBox/TodayBox";
+import Header from "../header/Header";
 
-import Edit from "../editPage/Edit";
-
-const WriteList = ({ authService, userDiary, nextNav, editList, deletList }) => {
-    const [editSwitch, setEditSwitch] = useState(false);
-    const [keyValue, setKeyValue] = useState();
-
-    const onLogout = () => {
+const WriteList = ({ userDiary, authService }) => {
+    const onLogout = useCallback(() => {
         let result = window.confirm("로그아웃 하시겠습니까?");
         if (result) {
             authService.logout(); //
         } else {
             return;
         }
-    };
+    }, [authService]);
 
     return (
         <>
-            {editSwitch === true ? (
-                <Edit pick={keyValue} editList={editList} deletList={deletList} setEditSwitch={setEditSwitch} />
-            ) : (
-                <TodayBox
-                    userDiary={userDiary} //
-                    onLogout={onLogout}
-                    nextNav={nextNav}
-                    setEditSwitch={setEditSwitch}
-                    setKeyValue={setKeyValue}
-                />
-            )}
+            <Header title="나의하루들" onLogout={onLogout} />
+            <TodayBox userDiary={userDiary} />
         </>
     );
 };

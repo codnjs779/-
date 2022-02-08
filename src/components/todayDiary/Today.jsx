@@ -1,11 +1,11 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, memo } from "react";
 import Header from "../header/Header";
 import styles from "./Today.module.css";
 import Button from "../btn/Button";
 import pen from "../../images/pen.png";
 import { useNavigate } from "react-router-dom";
 
-const Today = ({ addList }) => {
+const Today = memo(({ addList }) => {
     const nextNav = useNavigate();
 
     const diaryRef = useRef();
@@ -68,7 +68,7 @@ const Today = ({ addList }) => {
 
                 <div className={styles.txTBox}>
                     {" "}
-                    <textarea ref={diaryRef} className={styles.diaryTxT} maxLength="200" type="text" placeholder="200자 내로 입력해주세요!" />
+                    <textarea ref={diaryRef} className={styles.diaryTxT} defalutvalue="" maxLength="200" type="text" placeholder="200자 내로 입력해주세요!" />
                 </div>
 
                 <div className={styles.button}>
@@ -77,6 +77,6 @@ const Today = ({ addList }) => {
             </section>
         </div>
     );
-};
+});
 
 export default Today;

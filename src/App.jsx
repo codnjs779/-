@@ -1,10 +1,11 @@
 import styles from "./App.module.css";
 import React, { useState, useEffect } from "react";
-import Login from "./components/login/Login";
+import { Route, Routes, useLocation } from "react-router-dom";
 
+import Login from "./components/login/Login";
 import WriteList from "./components/list/WriteList";
 import Today from "./components/todayDiary/Today";
-import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
+import Edit from "./components/editPage/Edit";
 
 function App({ authService, dayRepository }) {
     //state
@@ -13,7 +14,6 @@ function App({ authService, dayRepository }) {
     //locate
     const location = useLocation();
     const locationState = location?.state;
-    const nextNav = useNavigate();
 
     //login
     const [userId, setUserId] = useState(locationState && locationState.id);
@@ -39,16 +39,6 @@ function App({ authService, dayRepository }) {
     };
 
     useEffect(() => {
-        authService.onAuthChange((user) => {
-            if (user) {
-                setUserId(user.uid);
-            } else {
-                nextNav("/");
-            }
-        });
-    }, [userId, nextNav, authService]);
-
-    useEffect(() => {
         if (!userId) {
             return;
         }
@@ -56,14 +46,15 @@ function App({ authService, dayRepository }) {
             setUserDiary(userDiary);
         });
         return () => stopSync(); //
-    }, [userId]);
+    }, [userId, dayRepository]);
 
     return (
         <div className={styles.app}>
             <Routes>
-                <Route path="/" element={<Login authService={authService} />} />
-                <Route path="/writelist" element={<WriteList userDiary={userDiary} authService={authService} nextNav={nextNav} editList={userDataController} deletList={deletList} />} />
+                <Route path="/" element={<Login authService={authService} setUserId={setUserId} />} />
+                <Route path="/writelist" element={<WriteList userDiary={userDiary} authService={authService} />} />
                 <Route path="/today" element={<Today addList={userDataController} />} />
+                <Route path="/edit" element={<Edit editList={userDataController} deletList={deletList} />} />
             </Routes>
         </div>
     );

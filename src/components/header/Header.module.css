@@ -1,6 +1,10 @@
-@value small,xsmall, large, twenty from "../common/size.css";
-@value lightBlack, white from "../common/colors.css";
-.titleBox {
+@value small,xsmall,xxsmall, large, middle,twenty from "../common/size.css";
+@value lightBlack, black,white from "../common/colors.css";
+.header {
+    display: flex;
+}
+
+.titleBar {
     width: 250px;
     height: large;
     background: lightBlack;
@@ -10,4 +14,23 @@
     border-radius: xsmall;
     margin: auto;
     padding-top: twenty;
+    margin-top: large;
+}
+.logoutBtn {
+    font-size: middle;
+    background: none;
+    border: none;
+    border-radius: xxsmall;
+    position: absolute;
+    margin-left: 85%;
+    margin-top: 65px;
+    margin-bottom: xsmall;
+    transition: 0.2s ease-in-out;
+    color: black;
+}
+
+.logoutBtn:hover {
+    background: black;
+    color: white;
+    transform: scale(1.1);
 }

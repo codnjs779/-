@@ -1,12 +1,19 @@
 import React from "react";
 import styles from "./MiniBox.module.css";
+import { useNavigate } from "react-router-dom";
 
-const MiniBox = ({ user, setEditSwitch, setKeyValue }) => {
+const MiniBox = ({ user }) => {
     const { date, emoji } = user;
+    const nextNav = useNavigate();
+
     const onClick = () => {
-        setEditSwitch(true);
-        setKeyValue(user);
-    };
+        nextNav("/edit", {
+            state: {
+                pick: user,
+            },
+        });
+    }; //
+
     return (
         <>
             <li className={styles.minibox} onClick={onClick}>

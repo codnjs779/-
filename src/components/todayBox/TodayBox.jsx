@@ -1,45 +1,25 @@
-import React, { useEffect, useState } from "react";
-import Header from "../header/Header";
+import React from "react";
 import styles from "./TodayBox.module.css";
-
 import pen from "../../images/pen.png";
-import LogoutBtn from "../logout/LogoutBtn";
 import MiniBox from "../miniBox/MiniBox";
+import { useNavigate } from "react-router-dom";
 
-const TodayBox = ({ userDiary, onLogout, nextNav, setEditSwitch, setKeyValue }) => {
-    const onTodayPage = () => {
+const TodayBox = ({ userDiary }) => {
+    const nextNav = useNavigate();
+    const todayPage = () => {
         nextNav("/today");
     };
-    const miniBox = Object.keys(userDiary).map((key) => <MiniBox key={key} user={userDiary[key]} setEditSwitch={setEditSwitch} setKeyValue={setKeyValue} />);
-    const [loading, setLoading] = useState(false);
-
-    useEffect(() => {
-        if (miniBox.length === 0) {
-            setLoading(true);
-        } else {
-            setLoading(false);
-        }
-    }, [miniBox]);
 
     return (
         <>
             <div className={styles.WriteListBox}>
-                <div className={styles.logoutBtn}>
-                    <LogoutBtn onLogout={onLogout} />
+                <div className={styles.miniboxSet}>
+                    {Object.keys(userDiary).map((key) => (
+                        <MiniBox key={key} user={userDiary[key]} />
+                    ))}
                 </div>
 
-                <div className={styles.titleBar}>
-                    <Header title="나의하루들" />
-                </div>
-                {loading && (
-                    <>
-                        <div className={styles.load}></div>
-                        <div className={styles.loadMsg}>로딩중입니다!</div>
-                    </>
-                )}
-                <div className={styles.miniboxSet}>{miniBox}</div>
-
-                <div className={styles.penBox} onClick={onTodayPage}>
+                <div className={styles.penBox} onClick={todayPage}>
                     <img src={pen} alt="pen" />
                 </div>
             </div>
@@ -48,3 +28,22 @@ const TodayBox = ({ userDiary, onLogout, nextNav, setEditSwitch, setKeyValue }) 
 };
 
 export default TodayBox;
+// useEffect(() => {
+//     // if (userDiary === "") {
+//     //     setLoading(false);
+//     //     return;
+//     // }
+//     // if (userDiary !== "") {
+//     //     setLoading(true);
+//     //     if (miniBox.length !== 0) {
+//     //         setLoading(false);
+//     //     } else {
+//     //         return;
+//     //     }
+//     // }
+// }, [miniBox]);  {loading && (
+//     <>
+//         <div className={styles.load}></div>
+//         <div className={styles.loadMsg}>로딩중입니다!</div>
+//     </>
+// )}
