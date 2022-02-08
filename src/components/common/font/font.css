@@ -1,10 +1,10 @@
 @font-face {
     font-family: "League";
-    font-style: normal;
-    src: url("./LeagueSpartan-Bold.otf") format("opentype"), url("./LeagueSpartan-Bold.otf") format("woff");
+    font-style: bold;
+    src: url("./LeagueSpartan-Bold.woff") format("woff");
 }
 @font-face {
     font-family: "JSDong";
     font-style: normal;
-    src: url("./JSDongkang-Regular.otf") format("opentype"), url("./JSDongkang-Regular.otf") format("woff");
+    src: url("./JSDongkang-Regular.woff") format("woff");
 }

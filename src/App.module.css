@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Spartan:wght@800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Hahmlet:wght@300;500&display=swap");
 @value mainBeige from "./components/common/colors.css";
 
 .app {
