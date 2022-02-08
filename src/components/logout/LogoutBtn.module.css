@@ -6,11 +6,12 @@
     background: none;
     border: none;
     border-radius: xxsmall;
-    margin-left: 85%;
     position: absolute;
+    margin-left: 85%;
     margin-top: 70px;
     margin-bottom: xsmall;
     transition: 0.2s ease-in-out;
+    color: black;
 }
 
 .logoutBtn:hover {

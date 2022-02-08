@@ -1,5 +1,5 @@
-@value large, line ,xsmall from "../common/size.css";
-@value white, mainBeige from "../common/colors.css";
+@value xxlarge, large, line ,xsmall, middle from "../common/size.css";
+@value white, mainBeige, lightBlack from "../common/colors.css";
 
 .WriteListBox {
     display: flex;
@@ -15,6 +15,30 @@
     justify-content: space-around;
     flex-wrap: wrap;
     margin-top: large;
+}
+.load {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 10px solid white;
+    border-top: 10px solid lightBlack;
+    animation: spin 2s linear infinite;
+    margin: auto;
+    margin-top: xxlarge;
+}
+.loadMsg {
+    text-align: center;
+    margin-top: middle;
+    font-size: middle;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 .penBox {

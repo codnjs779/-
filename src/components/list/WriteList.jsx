@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, memo, useEffect } from "react";
 import TodayBox from "../todayBox/TodayBox";
 
 import Edit from "../editPage/Edit";
