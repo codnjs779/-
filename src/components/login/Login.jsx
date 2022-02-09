@@ -2,26 +2,25 @@ import React, { useEffect } from "react";
 import styles from "./Login.module.css";
 import { useNavigate } from "react-router-dom";
 
-const Login = ({ authService, setUserId }) => {
+const Login = ({ authService }) => {
     const nextNav = useNavigate();
-    const nextPage = () => {
-        nextNav("/writelist");
+
+    const goToList = (userId) => {
+        nextNav("/writelist", {
+            state: { id: userId },
+        });
     };
 
     useEffect(() => {
         authService.onAuthChange((user) => {
-            if (user) {
-                setUserId(user.uid);
-            } else {
-                nextPage("/");
-            }
+            user && goToList(user.id);
         });
     });
 
     const signHandler = (e) => {
         authService //
             .login(e.currentTarget.textContent)
-            .then((data) => nextPage(data));
+            .then((data) => goToList(data.user.uid));
     };
 
     return (

@@ -14,6 +14,7 @@ function App({ authService, dayRepository }) {
     //locate
     const location = useLocation();
     const locationState = location?.state;
+    console.log(`location`, location);
 
     //login
     const [userId, setUserId] = useState(locationState && locationState.id);
