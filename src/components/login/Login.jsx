@@ -5,12 +5,6 @@ import { useNavigate } from "react-router-dom";
 const Login = ({ authService }) => {
     const nextNav = useNavigate();
 
-    const goToList = (userId) => {
-        nextNav("/writelist", {
-            state: { id: userId },
-        });
-    };
-
     useEffect(() => {
         authService.onAuthChange((user) => {
             user && goToList(user.id);
@@ -21,6 +15,12 @@ const Login = ({ authService }) => {
         authService //
             .login(e.currentTarget.textContent)
             .then((data) => goToList(data.user.uid));
+    };
+
+    const goToList = (userId) => {
+        nextNav("/writelist", {
+            state: { id: userId },
+        });
     };
 
     return (
