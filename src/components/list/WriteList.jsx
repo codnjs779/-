@@ -14,7 +14,7 @@ const WriteList = ({ authService, userDiary }) => {
         } else {
             return;
         }
-    }, [authService]);
+    }, [authService, nextNav]);
 
     return (
         <>
