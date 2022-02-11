@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import styles from "./Login.module.css";
 import { useNavigate } from "react-router-dom";
 
-const Login = ({ authService }) => {
+const Login = ({ authService, setUserId }) => {
     const nextNav = useNavigate();
 
     useEffect(() => {
@@ -18,9 +18,8 @@ const Login = ({ authService }) => {
     };
 
     const goToList = (userId) => {
-        nextNav("/writelist", {
-            state: { id: userId },
-        });
+        setUserId(userId);
+        nextNav("/writelist");
     };
 
     return (

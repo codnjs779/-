@@ -5,8 +5,7 @@ import Button from "../btn/Button";
 import pen from "../../images/pen.png";
 import { useLocation, useNavigate } from "react-router-dom";
 
-const Edit = ({ deletList, editList, test }) => {
-    console.log(test);
+const Edit = ({ deletList, editList }) => {
     const location = useLocation();
     const pick = location?.state.pick;
 
