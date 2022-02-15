@@ -55,6 +55,7 @@ function App({ authService, dayRepository }) {
             }
         });
     }, [authService, userId, nextNav]);
+    // 의존배열의 항복이 바뀔 때마다 업뎃 된다
 
     return (
         <div className={styles.app}>

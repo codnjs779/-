@@ -10,7 +10,6 @@ const Edit = ({ deletList, editList }) => {
     const pick = location?.state.pick;
 
     const { date, emoji, diary } = location?.state.pick;
-    const diaryRef = useRef();
 
     const [newDiary, setNewDiary] = useState("");
     const [pickEmotion, setPickEmotion] = useState("");
@@ -76,17 +75,14 @@ const Edit = ({ deletList, editList }) => {
                 <div className={styles.diaryHeader}>하루를 짧은 글로 정리해보세요</div>
 
                 <div className={styles.txTBox}>
-                    {" "}
                     <textarea
-                        ref={diaryRef}
                         onChange={onChange} //
                         className={styles.diaryTxT}
                         maxLength="200"
                         type="text" //
                         placeholder="200자 내로 입력해주세요!"
-                    >
-                        {diary}
-                    </textarea>
+                        defaultValue={diary}
+                    ></textarea>
                 </div>
 
                 <div className={styles.button}>

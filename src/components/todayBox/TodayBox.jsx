@@ -1,13 +1,12 @@
-import React, { memo } from "react";
+import React from "react";
 import styles from "./TodayBox.module.css";
 import pen from "../../images/pen.png";
 import MiniBox from "../miniBox/MiniBox";
 import { useNavigate } from "react-router-dom";
 
-const TodayBox = memo(({ userDiary }) => {
-    console.log("userDiary", userDiary);
-
+const TodayBox = ({ userDiary }) => {
     const nextNav = useNavigate();
+
     const todayPage = () => {
         nextNav("/today");
     };
@@ -27,25 +26,6 @@ const TodayBox = memo(({ userDiary }) => {
             </div>
         </>
     );
-});
+};
 
 export default TodayBox;
-// useEffect(() => {
-//     // if (userDiary === "") {
-//     //     setLoading(false);
-//     //     return;
-//     // }
-//     // if (userDiary !== "") {
-//     //     setLoading(true);
-//     //     if (miniBox.length !== 0) {
-//     //         setLoading(false);
-//     //     } else {
-//     //         return;
-//     //     }
-//     // }
-// }, [miniBox]);  {loading && (
-//     <>
-//         <div className={styles.load}></div>
-//         <div className={styles.loadMsg}>로딩중입니다!</div>
-//     </>
-// )}

@@ -1,10 +1,11 @@
-import React, { useCallback, memo } from "react";
+import React, { useCallback, useEffect } from "react";
 import TodayBox from "../todayBox/TodayBox";
 import Header from "../header/Header";
 import { useNavigate } from "react-router-dom";
 
 const WriteList = ({ authService, userDiary }) => {
     const nextNav = useNavigate();
+    // 계속 같은 함수 쓸때 & 내용 업뎃 되어도 항상 같은 함수 호출 다른 props이 변경되어도 동일하다는 것 , 한번 만들어진 함수 재활용
 
     const onLogout = useCallback(() => {
         let result = window.confirm("로그아웃 하시겠습니까?");
@@ -17,7 +18,6 @@ const WriteList = ({ authService, userDiary }) => {
     }, [authService, nextNav]);
 
     return (
-        //
         <>
             <Header title="나의하루들" onLogout={onLogout} />
             <TodayBox userDiary={userDiary} />
