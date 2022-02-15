@@ -1,10 +1,12 @@
-import React from "react";
+import React, { memo } from "react";
 import styles from "./TodayBox.module.css";
 import pen from "../../images/pen.png";
 import MiniBox from "../miniBox/MiniBox";
 import { useNavigate } from "react-router-dom";
 
-const TodayBox = ({ userDiary }) => {
+const TodayBox = memo(({ userDiary }) => {
+    console.log("userDiary", userDiary);
+
     const nextNav = useNavigate();
     const todayPage = () => {
         nextNav("/today");
@@ -25,7 +27,7 @@ const TodayBox = ({ userDiary }) => {
             </div>
         </>
     );
-};
+});
 
 export default TodayBox;
 // useEffect(() => {

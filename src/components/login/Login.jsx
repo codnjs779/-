@@ -1,9 +1,14 @@
-import React, { useEffect } from "react";
+import React, { useEffect, memo } from "react";
 import styles from "./Login.module.css";
 import { useNavigate } from "react-router-dom";
 
-const Login = ({ authService, setUserId }) => {
+const Login = memo(({ authService, setUserId }) => {
     const nextNav = useNavigate();
+
+    const goToList = (userId) => {
+        setUserId(userId);
+        nextNav("/writelist");
+    };
 
     useEffect(() => {
         authService.onAuthChange((user) => {
@@ -15,11 +20,6 @@ const Login = ({ authService, setUserId }) => {
         authService //
             .login(e.currentTarget.textContent)
             .then((data) => goToList(data.user.uid));
-    };
-
-    const goToList = (userId) => {
-        setUserId(userId);
-        nextNav("/writelist");
     };
 
     return (
@@ -36,6 +36,6 @@ const Login = ({ authService, setUserId }) => {
             </div>
         </div>
     );
-};
+});
 
 export default Login;

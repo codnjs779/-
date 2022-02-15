@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import styles from "./MiniBox.module.css";
 import { useNavigate } from "react-router-dom";
 

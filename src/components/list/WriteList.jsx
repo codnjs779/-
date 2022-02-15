@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useCallback, memo } from "react";
 import TodayBox from "../todayBox/TodayBox";
 import Header from "../header/Header";
 import { useNavigate } from "react-router-dom";
@@ -17,11 +17,12 @@ const WriteList = ({ authService, userDiary }) => {
     }, [authService, nextNav]);
 
     return (
+        //
         <>
             <Header title="나의하루들" onLogout={onLogout} />
             <TodayBox userDiary={userDiary} />
         </>
     );
 };
-// className={styles.penBox}
+
 export default WriteList;

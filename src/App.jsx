@@ -1,6 +1,6 @@
 import styles from "./App.module.css";
 import React, { useState, useEffect } from "react";
-import { Route, Routes, useLocation } from "react-router-dom";
+import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 
 import Login from "./components/login/Login";
 import WriteList from "./components/list/WriteList";
@@ -12,12 +12,12 @@ function App({ authService, dayRepository }) {
     const location = useLocation();
     const locationState = location?.state;
     const [userId, setUserId] = useState(locationState && locationState.id);
+    const nextNav = useNavigate();
 
     //state
     const [userDiary, setUserDiary] = useState({});
 
     //func
-
     const userDataController = (day) => {
         setUserDiary((userDiary) => {
             const newObj = { ...userDiary };
@@ -43,8 +43,18 @@ function App({ authService, dayRepository }) {
         const stopSync = dayRepository.syncDiary(userId, (userDiary) => {
             setUserDiary(userDiary);
         });
-        return () => stopSync(); //
+        return () => stopSync();
     }, [userId, dayRepository]);
+
+    useEffect(() => {
+        authService.onAuthChange((user) => {
+            if (user) {
+                setUserId(user.uid);
+            } else {
+                nextNav("/");
+            }
+        });
+    }, [authService, userId, nextNav]);
 
     return (
         <div className={styles.app}>
