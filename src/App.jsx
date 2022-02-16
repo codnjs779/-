@@ -64,7 +64,7 @@ function App({ authService, dayRepository }) {
                 <Route path="/writelist" element={<WriteList authService={authService} userDiary={userDiary} />} />
                 <Route path="/today" element={<Today addList={userDataController} />} />
                 <Route path="/edit" element={<Edit editList={userDataController} deletList={deletList} />} />
-                <Route path="*" element="not found"></Route>
+                <Route path="*" element="잘못된 경로를 입력하셨습니다! 뒤로가기 버튼을 누르세요"></Route>
             </Routes>
         </div>
     );

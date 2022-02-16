@@ -5,14 +5,13 @@ import { useNavigate } from "react-router-dom";
 const Login = memo(({ authService, setUserId }) => {
     const nextNav = useNavigate();
 
-    const goToList = (userId) => {
-        setUserId(userId);
+    const goToList = () => {
         nextNav("/writelist");
     };
 
     useEffect(() => {
         authService.onAuthChange((user) => {
-            user && goToList(user.id);
+            user && goToList();
         });
     });
 

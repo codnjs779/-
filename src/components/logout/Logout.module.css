@@ -1,0 +1,22 @@
+@value xsmall, xxsmall, middle from "../common/size.css";
+@value black, white from "../common/colors.css";
+
+.logoutBtn {
+    font-size: middle;
+    background: none;
+    border: none;
+    border-radius: xxsmall;
+    position: absolute;
+    margin-left: 85%;
+    margin-top: 65px;
+    margin-bottom: xsmall;
+    transition: 0.2s ease-in-out;
+    color: black;
+    cursor: pointer;
+}
+
+.logoutBtn:hover {
+    background: black;
+    color: white;
+    transform: scale(1.1);
+}

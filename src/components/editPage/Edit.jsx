@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import Header from "../header/Header";
 import styles from "../todayDiary/Today.module.css";
 import Button from "../btn/Button";

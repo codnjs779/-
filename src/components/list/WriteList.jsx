@@ -1,7 +1,8 @@
-import React, { useCallback, useEffect } from "react";
+import React, { useCallback } from "react";
 import TodayBox from "../todayBox/TodayBox";
 import Header from "../header/Header";
 import { useNavigate } from "react-router-dom";
+import Logout from "../logout/Logout";
 
 const WriteList = ({ authService, userDiary }) => {
     const nextNav = useNavigate();
@@ -19,7 +20,8 @@ const WriteList = ({ authService, userDiary }) => {
 
     return (
         <>
-            <Header title="나의하루들" onLogout={onLogout} />
+            <Logout onLogout={onLogout} />
+            <Header title="나의하루들" />
             <TodayBox userDiary={userDiary} />
         </>
     );
