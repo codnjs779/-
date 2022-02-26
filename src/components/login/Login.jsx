@@ -2,7 +2,7 @@ import React, { useEffect, memo } from "react";
 import styles from "./Login.module.css";
 import { useNavigate } from "react-router-dom";
 
-const Login = memo(({ authService, setUserId }) => {
+const Login = memo(({ authService }) => {
     const nextNav = useNavigate();
 
     const goToList = () => {
@@ -18,7 +18,7 @@ const Login = memo(({ authService, setUserId }) => {
     const signHandler = (e) => {
         authService //
             .login(e.currentTarget.textContent)
-            .then((data) => goToList(data.user.uid));
+            .then(() => goToList());
     };
 
     return (

@@ -55,16 +55,16 @@ function App({ authService, dayRepository }) {
             }
         });
     }, [authService, userId, nextNav]);
-    // 의존배열의 항복이 바뀔 때마다 업뎃 된다
+    // 의존배열의 항목이 바뀔 때마다 업뎃
 
     return (
         <div className={styles.app}>
             <Routes>
-                <Route path="/" element={<Login authService={authService} setUserId={setUserId} />} />
+                <Route path="/" element={<Login authService={authService} />} />
                 <Route path="/writelist" element={<WriteList authService={authService} userDiary={userDiary} />} />
                 <Route path="/today" element={<Today addList={userDataController} />} />
                 <Route path="/edit" element={<Edit editList={userDataController} deletList={deletList} />} />
-                <Route path="*" element="잘못된 경로를 입력하셨습니다! 뒤로가기 버튼을 누르세요"></Route>
+                <Route path="*" element="잘못된 경로를 입력하셨습니다!"></Route>
             </Routes>
         </div>
     );
