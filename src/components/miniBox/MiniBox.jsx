@@ -3,8 +3,6 @@ import styles from "./MiniBox.module.css";
 import { useNavigate } from "react-router-dom";
 
 const MiniBox = memo(({ user }) => {
-    // user가 바뀌지 않으면 업뎃 안되도 됨
-
     const { date, emoji } = user;
     const nextNav = useNavigate();
     const onClick = () => {
@@ -13,7 +11,7 @@ const MiniBox = memo(({ user }) => {
                 pick: user,
             },
         });
-    }; //
+    };
 
     return (
         <>
